@@ -322,3 +322,162 @@ Evaluation & Continuous Improvement
 
 
 
+
+
+*🧠 Large Language Models (LLMs) Deep Dive*
+
+Understanding LLMs is one of the most important topics in GenAI interviews.
+
+*1. What is a Large Language Model (LLM)?*
+A Large Language Model (LLM) is a deep learning model trained on massive amounts of text data to understand, generate, summarize, translate, and reason about human language.
+LLMs are built using the Transformer architecture and predict the next token based on the context of previous tokens.
+Examples:
+GPT
+Llama
+Gemini
+Claude
+Mistral
+
+*2. How are LLMs trained?*
+LLMs are typically trained in three stages:
+
+*Stage 1: Pretraining*
+The model learns language patterns from billions of words collected from books, websites, articles, and code.
+The model learns:
+Grammar
+Facts
+Reasoning patterns
+Writing styles
+Relationships between words
+
+*Stage 2: Fine-Tuning*
+The pretrained model is further trained on domain-specific data.
+Examples:
+Medical chatbot
+Banking assistant
+Legal assistant
+Coding assistant
+This makes the model specialized for particular tasks.
+
+*Stage 3: Alignment (RLHF)*
+The model learns from human feedback.
+Goals:
+Produce safer responses
+Follow instructions better
+Reduce harmful outputs
+Improve helpfulness
+
+*3. How does an LLM generate text?*
+User Prompt
+      ↓
+Tokenization
+      ↓
+Embeddings
+      ↓
+Transformer Layers
+      ↓
+Attention Mechanism
+      ↓
+Probability Distribution
+      ↓
+Next Token Prediction
+      ↓
+Repeat Until Complete
+The model predicts one token at a time until the response is finished.
+
+*4. What are Tokens?*
+A token is the smallest unit processed by an LLM.
+Example:
+Sentence:
+Artificial Intelligence is amazing.
+Possible tokens:
+Artificial
+Intelligence
+is
+amazing
+.
+Some tokenizers split words into smaller subwords.
+Example:
+unbelievable
+↓
+un
+believ
+able
+
+*5. What are Parameters?*
+Parameters are the learned weights inside a neural network.
+They store everything the model learns during training.
+Examples:
+Small model → Millions of parameters
+Large model → Billions of parameters
+Generally:
+More parameters → Better learning capacity
+More parameters → Higher memory and compute requirements
+
+*6. What is Context Window?*
+The context window is the maximum amount of information (measured in tokens) the model can process in one request.
+It includes:
+User prompt
+Previous conversation
+Retrieved documents
+System instructions
+A larger context window helps with:
+Long documents
+Multi-turn conversations
+Better RAG performance
+
+*7. What is Inference?*
+Inference is the process of using a trained model to generate predictions or responses.
+Example:
+Training → Teaching the model
+Inference → Using the trained model to answer questions
+Inference happens every time you interact with an AI chatbot.
+
+*8. What is Temperature?*
+Temperature controls the randomness of the generated response.
+Low Temperature (0.1–0.3)
+More deterministic
+Better for factual tasks
+Less creative
+High Temperature (0.8–1.2)
+More creative
+More varied responses
+Higher chance of unexpected outputs
+
+*9. What is Top-p Sampling?*
+Top-p (nucleus sampling) selects the next token from the smallest set of tokens whose cumulative probability exceeds a chosen threshold.
+Benefits:
+Improves diversity
+Reduces repetitive outputs
+Balances creativity and quality
+Top-p is often tuned together with temperature.
+
+*10. What is Max Tokens?*
+Max Tokens defines the maximum number of tokens the model is allowed to generate in its response.
+Example:
+Max Tokens = 100
+The response stops after generating up to 100 output tokens, even if the answer could be longer.
+This helps control:
+Response length
+Latency
+Cost
+
+*11. What is Latency?*
+Latency is the time taken by the model to generate a response after receiving a request.
+Factors affecting latency:
+Model size
+Prompt length
+Context window
+Hardware
+Network
+Retrieval time (for RAG)
+
+*12. What is Inference Cost?*
+Inference cost is the cost of running an LLM for generating responses.
+It depends on:
+Number of input tokens
+Number of output tokens
+Model size
+Number of API requests
+Reducing unnecessary tokens and optimizing prompts can significantly lower costs.
+
