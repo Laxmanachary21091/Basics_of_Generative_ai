@@ -654,4 +654,119 @@ More expensive to maintain
 Improves task-specific performance
 
 
+*⚙️ Fine-Tuning, LoRA, PEFT, RLHF & Model Alignment*
+
+Fine-tuning and model adaptation are important topics for GenAI Engineer, LLM Engineer, and Applied AI interviews.
+
+*1. What is Fine-Tuning?*
+Fine-tuning is the process of taking a pretrained model and training it further on a smaller, specialized dataset.
+
+*Example:*  
+General LLM → Financial Documents → Fine-Tuning → Financial AI Assistant
+
+The goal is to make the model perform better on a specific task or domain.
+
+*2. Pretraining vs Fine-Tuning*
+*Pretraining:* Initial model training, Very large dataset, Learns general patterns, Expensive, Creates foundation model  
+*Fine-Tuning:* Additional training, Smaller specialized dataset, Learns specific behavior, Relatively cheaper, Adapts foundation model
+
+*Simple Example:*  
+Pretraining: Learn general English.  
+Fine-tuning: Learn how to answer banking customer-support questions.
+
+*3. When Should You Fine-Tune an LLM?*
+Fine-tuning can be useful when you need:  
+*✅* Consistent output format  
+*✅* Specific writing style  
+*✅* Domain-specific behavior  
+*✅* Specialized classification  
+*✅* Task-specific performance  
+*✅* Consistent instruction following
+
+*Example:* A company wants every support response to follow a specific format. Fine-tuning may be more appropriate than repeatedly putting the same style instructions into prompts.
+
+*4. When Should You NOT Fine-Tune?*
+Fine-tuning isn't always the best solution.  
+Avoid fine-tuning when the main problem is changing knowledge.
+
+*Example:* A company has thousands of frequently changing policies.  
+Instead of continuously fine-tuning the model, use: *RAG* → Retrieve the latest policy → Generate answer
+
+*Rule:* RAG changes the information available to the model; fine-tuning changes how the model behaves.
+
+*5. What is Parameter-Efficient Fine-Tuning (PEFT)?*
+PEFT allows you to adapt a large model without updating all of its parameters.  
+Large Frozen Model + Small Trainable Parameters → Adapted Model
+
+*Benefits:* Lower GPU requirements, Lower training cost, Faster training, Smaller adaptation files
+
+*6. What is LoRA?*
+LoRA stands for Low-Rank Adaptation.  
+It is a popular PEFT technique that freezes the original model weights and adds small trainable matrices.  
+Original Model → Frozen + LoRA Adapters → Fine-Tuned Model
+
+*7. What are LoRA Adapters?*
+LoRA adapters contain the learned changes needed for a particular task.  
+Base Model → Finance Adapter, Medical Adapter, Coding Adapter  
+The same base model can therefore be adapted for different applications.
+
+*8. What is QLoRA?*
+QLoRA combines: Quantization + LoRA  
+The base model is loaded using lower-precision representations while LoRA adapters are trained.
+
+*Benefits:* Lower memory requirements, Lower hardware cost, Makes large-model fine-tuning possible on more limited hardware
+
+*9. What is Transfer Learning?*
+Transfer learning means taking knowledge learned from one task and applying it to another related task.  
+General Language Model → Transfer Learning → Legal Document Model
+
+*10. What is RLHF?*
+RLHF stands for Reinforcement Learning from Human Feedback.  
+It uses human preferences to improve model behavior.
+
+*Simplified Process:* LLM generates responses → Humans evaluate → Preferred responses identified → Reward signal → Model optimized
+
+The goal is to make the model more: Helpful, Safe, Aligned, Instruction-following
+
+*11. What is Model Alignment?*
+Model alignment means making an AI system behave consistently with intended human goals, values, and safety requirements.  
+An aligned model should: Follow legitimate instructions, Avoid harmful behavior, Provide useful responses, Respect safety constraints
+
+*12. What is Instruction Tuning?*
+Instruction tuning trains a model on examples containing instructions and desired responses.  
+*Example:* Instruction: "Summarize this article." → Expected Response: "Article summary..."
+
+*13. What is Supervised Fine-Tuning (SFT)?*
+Supervised Fine-Tuning trains a model using labeled examples.  
+*Example dataset:* Instruction → Expected Response: "Translate Hello" → "Bonjour"
+
+*14. What is Catastrophic Forgetting?*
+Catastrophic forgetting occurs when a model becomes better at a new task but loses some of its previous capabilities.  
+General LLM → Heavy Domain Fine-Tuning → Excellent domain performance → Reduced performance on some general tasks
+
+*15. What are the Risks of Fine-Tuning?*
+Overfitting, Bias amplification, Catastrophic forgetting, Poor-quality outputs, Data leakage, Privacy problems, High training costs
+
+*16. How do you prepare data for fine-tuning?*
+Raw Data → Cleaning → Deduplication → Filtering → Formatting → Train / Validation Split → Fine-Tuning  
+Good training data should be: Relevant, Accurate, Diverse, Consistent, High quality
+
+*17. How do you evaluate a fine-tuned model?*
+Compare the fine-tuned model against the base model.  
+Evaluate: Accuracy, Task completion, Response quality, Hallucination rate, Safety, Human preference, Domain-specific metrics
+
+*18. Fine-Tuning vs Prompt Engineering*
+*Prompt Engineering:* Changes instructions, Fast, Low cost, No training dataset required, Easy to iterate  
+*Fine-Tuning:* Changes model parameters, Takes training time, Higher cost, Requires training data, Good for specialized behavior
+
+*19. Fine-Tuning vs RAG*
+*Use RAG when:* Knowledge changes frequently, You need private documents, You need citations/grounding, You want to update knowledge without retraining  
+*Use Fine-Tuning when:* You need consistent behavior, You need a specific output style, You need task specialization
+
+*You can also combine them:* Fine-Tuned LLM + RAG → Specialized + Grounded AI System
+
+*20. Interview Question: Design a Fine-Tuning Strategy*
+*Strong Answer:* "First, I would establish a baseline using the pretrained model and prompting. Then I would collect and clean high-quality domain-specific data, create train/validation/test splits, and determine whether full fine-tuning or PEFT such as LoRA is appropriate. I would fine-tune the model, evaluate it against the baseline, test for hallucinations and safety issues, and then deploy it with monitoring."
+
+
 
